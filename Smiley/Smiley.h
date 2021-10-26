@@ -2,7 +2,7 @@
 
 #include "SmileyApp.h"
 #include "SmileyUtils.h"
-
+#include "GameWindow.h"
 // '\' used for multiline code 
 #define START_SMILEY_GAME(classname) \
 int main()\

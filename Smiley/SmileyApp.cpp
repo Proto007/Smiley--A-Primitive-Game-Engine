@@ -4,12 +4,12 @@
 namespace Smiley {
 	void SmileyApp::Run() {
 		std::cout << "Smiley is walking..." << std::endl;
-		GLFWwindow* window;
 		glfwInit();
-		window = glfwCreateWindow(800, 600, "Test",NULL,NULL);
+		mGameWindow.CreateWindow(800, 600, "Test");
 		while (true) {
 			OnUpdate();
-			glfwSwapBuffers(window);
+			mGameWindow.SwapBuffers();
+			mGameWindow.PollEvents();
 			glfwPollEvents();
 		}
 	}

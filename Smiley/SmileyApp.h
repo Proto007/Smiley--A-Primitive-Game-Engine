@@ -1,5 +1,6 @@
 #pragma once
 #include "SmileyUtils.h"
+#include "GameWindow.h"
 namespace Smiley {
 
 	class SMILEY_API SmileyApp
@@ -12,7 +13,7 @@ namespace Smiley {
 	protected:
 		SmileyApp();
 	private:
-
+		GameWindow mGameWindow;
 	};
 
 }
