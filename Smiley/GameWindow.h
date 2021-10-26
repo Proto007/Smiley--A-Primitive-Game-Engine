@@ -1,6 +1,7 @@
 #pragma once
 #include "SmileyUtils.h"
 #include "WindowImplementation.h"
+#include "pch.h"
 namespace Smiley {
 	class SMILEY_API GameWindow{
 	public:
@@ -11,6 +12,6 @@ namespace Smiley {
 		int GetWindowWidth() const;
 		int GetWindowHeight() const;
 	private:
-		WindowImplementation* mWindow;
+		std::unique_ptr<WindowImplementation> mWindow;
 	};
 }
