@@ -1,3 +1,4 @@
+.vs
 Debug
 Release
 
@@ -7,6 +8,9 @@ Smiley/Release
 MyGame/Debug
 MyGame/Release
 
-.vs
-
 glfw/build
+
+stbi/Debug
+stbi/Release
+
+glad/x64
