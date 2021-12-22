@@ -11,7 +11,7 @@
 
 namespace Smiley {
 	void SmileyApp::Run() {
-		std::cout << "Smiley is walking..." << std::endl;
+		SMILEY_LOG("Smiley is walking...");
 		mGameWindow.CreateWindow(800, 600, "Test");
 		
 		Renderer::Init();
@@ -24,13 +24,15 @@ namespace Smiley {
 		//Texture
 		Smiley::Sprite ichigo;
 		ichigo.LoadImage("C:/Users/sadab/Desktop/Smiley/F21_Sadab_Hafiz/Smiley/Assets/Textures/ichigo.png");
-
+		mTimeOfNextFrame = std::chrono::steady_clock::now() + mFrameDuration;
 		while (true) {
 			Renderer::ClearFrame();
 			OnUpdate();
 			Renderer::Draw(ichigo, 100, 50, ichigo.GetWidth(), ichigo.GetHeight(),myShader);
+			std::this_thread::sleep_until(mTimeOfNextFrame);
 			mGameWindow.SwapBuffers();
 			mGameWindow.PollEvents();
+			mTimeOfNextFrame += mFrameDuration;
 		}
 		Renderer::ShutDown();
 	}

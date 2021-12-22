@@ -9,3 +9,9 @@
 #else
 	#define SMILEY_API
 #endif
+
+#ifdef SMILEY_DEBUG
+	#define SMILEY_LOG(x) std::cout<<x<<std::endl;
+#else
+	#define SMILEY_LOG(x)
+#endif
