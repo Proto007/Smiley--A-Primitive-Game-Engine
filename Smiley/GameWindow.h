@@ -2,6 +2,7 @@
 #include "SmileyUtils.h"
 #include "WindowImplementation.h"
 #include "pch.h"
+#include "Events.h"
 namespace Smiley {
 	class SMILEY_API GameWindow{
 	public:
@@ -11,6 +12,7 @@ namespace Smiley {
 		void PollEvents();
 		int GetWindowWidth() const;
 		int GetWindowHeight() const;
+		void SetKeyPressedCallback(std::function<void(KeyPressedEvent &)>);
 	private:
 		std::unique_ptr<WindowImplementation> mWindow;
 	};

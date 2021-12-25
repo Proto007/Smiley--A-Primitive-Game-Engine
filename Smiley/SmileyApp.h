@@ -12,6 +12,9 @@ namespace Smiley {
 		void Run();
 		// Used in each run of the game loop to update game screen 
 		virtual void OnUpdate();
+		virtual void OnKeyPressed(KeyPressedEvent& event);
+		int GetGameWindowWidth() const;
+		int GetGameWindowHeight() const;
 	protected:
 		SmileyApp();
 	private:

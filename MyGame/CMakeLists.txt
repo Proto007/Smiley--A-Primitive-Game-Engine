@@ -1,8 +1,8 @@
-add_executable(my_game main.cpp)
+add_executable(my_game main.cpp MyGameApp.h MyGameApp.cpp Unit.h Unit.cpp)
 
 target_link_libraries(my_game smiley_lib)
 
-set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/ .. PROPERTY VS_STARTUP_PROJECT my_game)
+set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/.. PROPERTY VS_STARTUP_PROJECT my_game)
 
 include_directories(../Smiley)
 

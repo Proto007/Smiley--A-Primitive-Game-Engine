@@ -12,23 +12,10 @@
 namespace Smiley {
 	void SmileyApp::Run() {
 		SMILEY_LOG("Smiley is walking...");
-		mGameWindow.CreateWindow(800, 600, "Test");
-		
-		Renderer::Init();
-		
-		//Shaders
-		Smiley::Shader myShader;
-		myShader.Load("C:/Users/sadab/Desktop/Smiley/F21_Sadab_Hafiz/Smiley/Assets/Shaders/myVertexShader.glsl", 
-			"C:/Users/sadab/Desktop/Smiley/F21_Sadab_Hafiz/Smiley/Assets/Shaders/myFragmentShader.glsl");
-		myShader.SetVec2IntUniform("screenSize", mGameWindow.GetWindowWidth(), mGameWindow.GetWindowHeight());
-		//Texture
-		Smiley::Sprite ichigo;
-		ichigo.LoadImage("C:/Users/sadab/Desktop/Smiley/F21_Sadab_Hafiz/Smiley/Assets/Textures/ichigo.png");
 		mTimeOfNextFrame = std::chrono::steady_clock::now() + mFrameDuration;
 		while (true) {
 			Renderer::ClearFrame();
-			OnUpdate();
-			Renderer::Draw(ichigo, 100, 50, ichigo.GetWidth(), ichigo.GetHeight(),myShader);
+			OnUpdate();			
 			std::this_thread::sleep_until(mTimeOfNextFrame);
 			mGameWindow.SwapBuffers();
 			mGameWindow.PollEvents();
@@ -36,10 +23,24 @@ namespace Smiley {
 		}
 		Renderer::ShutDown();
 	}
+	int SmileyApp::GetGameWindowWidth() const {
+		return mGameWindow.GetWindowWidth();
+	}
+	int SmileyApp::GetGameWindowHeight() const{
+		return mGameWindow.GetWindowHeight();
+	}
 	void SmileyApp::OnUpdate() {
 
 	}
+	void SmileyApp::OnKeyPressed(KeyPressedEvent& event) {
+		SMILEY_LOG(event.GetKeyCode());
+	}
 	SmileyApp::SmileyApp() {
-	
+		mGameWindow.CreateWindow(800, 800, "Game");
+		mGameWindow.SetKeyPressedCallback([this](KeyPressedEvent& event) {
+			OnKeyPressed(event);
+			});
+
+		Renderer::Init();
 	}
 }

@@ -1,1 +1,1 @@
-add_library(stbi STATIC stb_image.cpp stb_image.h)
+add_library(stbi STATIC stb_img.cpp stb_img.h)
