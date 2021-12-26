@@ -12,7 +12,7 @@ elseif(UNIX)
 	add_definitions(-DSMILEY_LINUX)
 endif()
 
-add_definitions(-DBUBBLE_OPENGL)
+add_definitions(-DSMILEY_OPENGL)
 add_subdirectory(MyGame)
 add_subdirectory(Smiley)
 add_subdirectory(glfw)
