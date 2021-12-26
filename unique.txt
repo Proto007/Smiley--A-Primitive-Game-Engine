@@ -1,4 +1,4 @@
-- Introduced lore from popular anime seried BLEACH.
+- Introduced lore from popular anime series BLEACH.
 - Main Character Ichigo can go up and down on left side of screen.
 - Ichigo can use getsugatenshou(ranged attack) with right direction, 
 	and slash(close attack) with left direction to defeat enemies
